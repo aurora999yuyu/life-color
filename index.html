@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>生活颜色 - 记录光影与心情</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="app-body">
+    <div class="container">
+        <!-- 顶部导航 -->
+        <nav class="navbar">
+            <div class="nav-top">
+                <h1 class="site-title">🌿 生活颜色</h1>
+                <button class="settings-btn" id="settingsBtn" title="设置背景">⚙️</button>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn active" data-tab="photos">📸 照片时间轴</button>
+                <button class="nav-btn" data-tab="moods">🎨 心情颜色</button>
+                <button class="nav-btn" data-tab="upload">➕ 上传记录</button>
+            </div>
+        </nav>
+
+        <!-- 照片时间轴板块 -->
+        <div id="photos-tab" class="tab-content active">
+            <div class="timeline" id="timeline">
+                <div class="loading">加载中...</div>
+            </div>
+        </div>
+
+        <!-- 心情颜色板块 -->
+        <div id="moods-tab" class="tab-content">
+            <div class="moods-list" id="moods-list">
+                <div class="loading">加载中...</div>
+            </div>
+        </div>
+
+        <!-- 上传板块 -->
+        <div id="upload-tab" class="tab-content">
+            <div class="upload-section">
+                <h2>📸 上传新照片</h2>
+                <form id="uploadPhotoForm">
+                    <div class="form-group">
+                        <label>日期：</label>
+                        <input type="date" id="photoDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>照片：</label>
+                        <input type="file" id="photoFile" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label>描述（可选）：</label>
+                        <input type="text" id="photoDesc" placeholder="写点什么...">
+                    </div>
+                    <button type="submit" class="submit-btn">📷 上传照片</button>
+                </form>
+
+                <div class="divider"></div>
+
+                <h2>🎨 记录心情</h2>
+                <form id="uploadMoodForm">
+                    <div class="form-group">
+                        <label>日期：</label>
+                        <input type="date" id="moodDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>心情颜色：</label>
+                        <input type="color" id="moodColor" value="#FFD966" required>
+                        <span class="color-hint">点击色块自由选择颜色</span>
+                    </div>
+                    <div class="form-group">
+                        <label>心情文字（可选）：</label>
+                        <textarea id="moodText" rows="3" placeholder="今天的心情..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>配图（可选）：</label>
+                        <input type="file" id="moodImage" accept="image/*">
+                    </div>
+                    <button type="submit" class="submit-btn">💚 记录心情</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 背景设置模态框 -->
+    <div id="bgModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>设置背景图片</h3>
+            <div class="bg-options">
+                <div class="bg-option" data-bg="default">
+                    <div class="bg-preview default-bg"></div>
+                    <span>默认绿色渐变</span>
+                </div>
+                <div class="bg-option" data-bg="upload">
+                    <div class="bg-preview upload-bg">
+                        <label for="bgUpload" class="upload-label">+ 上传图片</label>
+                        <input type="file" id="bgUpload" accept="image/*" style="display: none;">
+                    </div>
+                    <span>自定义背景</span>
+                </div>
+            </div>
+            <div id="customBgPreview" style="display: none;">
+                <p>当前自定义背景：</p>
+                <img id="customBgImg" style="max-width: 100%; max-height: 150px; border-radius: 8px;">
+                <button id="clearCustomBg" class="small-btn">清除自定义背景</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

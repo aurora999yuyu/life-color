@@ -1,0 +1,32 @@
+// ============================================
+// 初始数据（首次运行时使用）
+// 之后数据会保存在浏览器中
+// ============================================
+
+const photosData = [
+    {
+        date: "2026-03-22",
+        imagePath: "photos/example1.jpg",
+        description: "午后阳光透过树叶"
+    },
+    {
+        date: "2026-03-15",
+        imagePath: "photos/example2.jpg",
+        description: "路边偶遇的小花"
+    }
+];
+
+const moodsData = [
+    {
+        date: "2026-03-22",
+        color: "#FFD966",
+        text: "今天完成了一件拖延很久的事，开心！",
+        imagePath: ""
+    },
+    {
+        date: "2026-03-21",
+        color: "#8FBC8F",
+        text: "安静地读了一下午书",
+        imagePath: ""
+    }
+];
